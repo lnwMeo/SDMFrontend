@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset CSS แบบพื้นฐาน */
+
+
+/*  {
+  
+} */
+
+/* :root{
+    background-color: #fcfcfc; ตั้งค่าแบ็คกราวด์สีขาว */
+/* } */
+/* :root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fcfcfc; */
+    /* สีขาว */
+/* } */
+
+/* รีเซ็ตแบ็คกราวด์ของ #root กลับไปเป็นค่าเริ่มต้นหรือสืบทอดจากพ่อแม่ */
+/* #root {
+    background-color: inherit; */
+    /* หรือใช้ initial เพื่อรีเซ็ตกลับไปเป็นค่าเริ่มต้น */
+/* } */

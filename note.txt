@@ -1,0 +1,21 @@
+ขนาด Font 
+ * font-prompt
+ - title (16px) = font-medium text-gray-900 text-md
+ - text descliption (12px) = text-xs  font-light text-gray-500
+ - text descliption a nav (14px) = text-sm  font-light text-gray-500
+
+
+ font-normal
+
+ drop-shadow-lg 
+
+ [12px]
+ [14px]
+ [16px]
+
+ sm
+ md
+ lg
+ xl
+
+ 
