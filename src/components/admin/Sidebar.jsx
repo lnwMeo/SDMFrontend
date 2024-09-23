@@ -14,8 +14,8 @@ function Sidebar({ isCollapsed, toggleSidebar }) {
     <>
       <aside
         className={`fixed top-0 left-0 z-40 ${
-          isCollapsed ? "w-20" : "w-64 "
-        } h-screen transition-width duration-300 bg-gray-950  font-prompt`}
+          isCollapsed ? "w-16" : "w-64 "
+        } h-screen transition-width duration-300 bg-gray-950  font-prompt `}
       >
         <div className="flex items-center justify-between  ml-2">
           <p
@@ -32,8 +32,7 @@ function Sidebar({ isCollapsed, toggleSidebar }) {
             <FaBars />
           </button>
         </div>
-        <div className="p-3">
-          
+        <div className="p-2">
           <p
             className={`font-medium text-[14px] text-white ${
               isCollapsed ? "hidden" : "block "
@@ -44,7 +43,7 @@ function Sidebar({ isCollapsed, toggleSidebar }) {
 
           <a
             href="/admin/Dashbord"
-            className="font-light text-[14px] text-white inline-flex m-2 gap-2 p-2  rounded-md items-center hover:bg-violet-800 hover:text-white w-full "
+            className="font-light text-[14px] text-white inline-flex m-2 gap-2 p-2  rounded-l-lg items-center hover:bg-violet-800 hover:text-white w-full "
           >
             <RiDashboard2Line className="text-xl " />
             <span className={`${isCollapsed ? "hidden" : "block"}`}>
@@ -61,7 +60,7 @@ function Sidebar({ isCollapsed, toggleSidebar }) {
           </p>
           <a
             href="/admin/Stors"
-            className="font-light text-[14px] text-white inline-flex m-2 gap-2 px-2 py-2 w-full rounded-md items-center hover:bg-violet-800 hover:text-white"
+            className="font-light text-[14px] text-white inline-flex m-2 gap-2 px-2 py-2 w-full rounded-l-lg items-center hover:bg-violet-800 hover:text-white"
           >
             <FaBox className="text-xl " />
             <span className={`${isCollapsed ? "hidden" : "block"}`}>
@@ -78,7 +77,7 @@ function Sidebar({ isCollapsed, toggleSidebar }) {
           </p>
           <a
             href="/admin/Approvestors"
-            className="font-light text-[14px] text-white inline-flex m-2 gap-2 px-2 py-2 w-full rounded-md items-center hover:bg-violet-800 hover:text-white"
+            className="font-light text-[14px] text-white inline-flex m-2 gap-2 px-2 py-2 w-full rounded-l-lg items-center hover:bg-violet-800 hover:text-white"
           >
             <FaChalkboardUser className="text-xl " />
             <span className={`${isCollapsed ? "hidden" : "block"}`}>
@@ -88,7 +87,7 @@ function Sidebar({ isCollapsed, toggleSidebar }) {
 
           <a
             href="/admin/Producttracking"
-            className="font-light text-[14px] text-white inline-flex m-2 gap-2 px-2 py-2 w-full rounded-md items-center hover:bg-violet-800 hover:text-white"
+            className="font-light text-[14px] text-white inline-flex m-2 gap-2 px-2 py-2 w-full rounded-l-lg items-center hover:bg-violet-800 hover:text-white"
           >
             <FaTags className="text-xl " />
             <span className={`${isCollapsed ? "hidden" : "block"}`}>
@@ -97,7 +96,7 @@ function Sidebar({ isCollapsed, toggleSidebar }) {
           </a>
           <a
             href="/admin/Returnshistoryproduct"
-            className="font-light text-[14px] text-white inline-flex m-2 gap-2 px-2 py-2 w-full rounded-md items-center hover:bg-violet-800 hover:text-white"
+            className="font-light text-[14px] text-white inline-flex m-2 gap-2 px-2 py-2 w-full rounded-l-lg items-center hover:bg-violet-800 hover:text-white"
           >
             <MdWorkHistory className="text-xl " />
             <span className={`${isCollapsed ? "hidden" : "block"}`}>
@@ -114,7 +113,7 @@ function Sidebar({ isCollapsed, toggleSidebar }) {
           </p>
           <a
             href="/admin/ManageAdmin"
-            className="font-light text-[14px] text-white inline-flex m-2 gap-2 px-2 py-2 w-full rounded-md items-center hover:bg-violet-800 hover:text-white"
+            className="font-light text-[14px] text-white inline-flex m-2 gap-2 px-2 py-2 w-full rounded-l-lg items-center hover:bg-violet-800 hover:text-white"
           >
             <FaUserFriends className="text-xl " />
             <span className={`${isCollapsed ? "hidden" : "block"}`}>
@@ -123,7 +122,7 @@ function Sidebar({ isCollapsed, toggleSidebar }) {
           </a>
           <a
             href="/admin/Settingnotifi"
-            className="font-light text-[14px] text-white inline-flex m-2 gap-2 px-2 py-2 w-full rounded-md items-center hover:bg-violet-800 hover:text-white"
+            className="font-light text-[14px] text-white inline-flex m-2 gap-2 px-2 py-2 w-full rounded-l-lg items-center hover:bg-violet-800 hover:text-white"
           >
             <MdNotificationsActive className="text-xl " />
             <span className={`${isCollapsed ? "hidden" : "block"}`}>
@@ -131,7 +130,7 @@ function Sidebar({ isCollapsed, toggleSidebar }) {
             </span>
           </a>
           <hr className={`${isCollapsed ? "hidden" : "block"}`} />
-          <button className="font-light text-[14px] text-gray-950 inline-flex m-2 gap-2 px-2 py-2 w-full rounded-md items-center bg-violet-300 hover:bg-violet-800 hover:text-white">
+          <button className="font-light text-[14px] text-gray-950 inline-flex m-2 gap-2 px-2 py-2 w-full rounded-l-lg items-center bg-violet-300 hover:bg-violet-800 hover:text-white">
             <CiLogout className="text-xl " />
             <span className={`${isCollapsed ? "hidden" : "block"}`}>
               ออกจากระบบ

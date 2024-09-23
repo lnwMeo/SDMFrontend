@@ -73,7 +73,7 @@ function CardBasket() {
       {productsDATA.map((product) => (
         <div
           key={product.id}
-          className="grid w-full max-w-md grid-cols-6 gap-2 mt-2 bg-white rounded-md "
+          className="grid w-full max-w-md grid-cols-6 gap-2 mt-2 p-1 bg-white dark:bg-gray-900 rounded-md "
         >
           <div className="col-span-1">
             <img
@@ -83,10 +83,10 @@ function CardBasket() {
             />
           </div>
           <div className="col-start-2 col-end-6 md:col-end-6 lg:col-end-6 ">
-            <p className="truncate text-sm font-normal text-gray-900">
+            <p className="truncate text-sm font-normal text-gray-900 dark:text-white">
               {product.name}
             </p>
-            <p className="text-[12px] font-light text-gray-500">
+            <p className="text-[12px] font-light text-gray-500 dark:text-amber-500">
               {product.category}
             </p>
           </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import CardBasket from './CardBasket'
 function Basket() {
   return (
-    <div className="h-full p-2 bg-white border border-gray-200 rounded-lg font-prompt">
+    <div className="h-full p-2 bg-white border border-gray-200  rounded-lg font-prompt">
       <p className='mb-2 font-medium text-gray-900 text-md'>ตะกร้า</p>
       <hr className='mb-2 border' />
       <div className='p-2 overflow-y-auto max-h-96 h-96'>
