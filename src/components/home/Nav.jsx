@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-import Logos from "./logo.png";
+// import Logos from "./logo.png";
 // import cat from './assets/image/cat.png'
 import { FaUserCircle } from "react-icons/fa";
 
 import Toggletheme from "../theme/Toggletheme";
+
+import logo from '../../assets/image/logo.png'
 
 const usertest = [
   {
@@ -69,6 +71,7 @@ const Nav = () => {
             </ul>
           </div>
           {/* <img src={Logos} alt="logo" className='max-w-56' /> */}
+          <img className="w-10" src={logo} alt="" />
           <p className="p-2 text-[20px] font-semibold text-violet-950 italic dark:text-violet-400">
             COMCENTER SDM
           </p>

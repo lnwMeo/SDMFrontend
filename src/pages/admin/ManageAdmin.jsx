@@ -27,6 +27,9 @@ function ManageAdmin() {
                                     Email
                                 </th>
                                 <th scope="col" className="px-6 py-3 text-[12px] font-normal text-gray-900 dark:text-white">
+                                    ระดับ
+                                </th>
+                                <th scope="col" className="px-6 py-3 text-[12px] font-normal text-gray-900 dark:text-white">
                                     แก้ไข - ลบ
                                 </th>
                             </tr>
@@ -42,6 +45,9 @@ function ManageAdmin() {
                                 <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white">
                                     chaitawat.no@nrru.ac.th
                                 </td>
+                                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white">
+                                    หัวหน้า
+                                </td>
                                 <td className="px-6 py-4 ">
                                     <button className="inline-flex items-center px-2 py-2 font-normal dark:text-white text-white border-white rounded-full bg-amber-500 hover:bg-amber-600"><MdEditSquare className='text-[16px] text-white' /></button>
                                     <button className="inline-flex items-center px-2 py-2 ml-2 font-normal dark:text-white text-white bg-red-500 border-white rounded-full hover:bg-red-600"><IoTrashBin className='text-[16px] text-white' /></button>
@@ -56,6 +62,9 @@ function ManageAdmin() {
                                 </td>
                                 <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white">
                                     chaitawat.no@nrru.ac.th
+                                </td>
+                                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white">
+                                    พนักงาน
                                 </td>
                                 <td className="px-6 py-4 ">
                                     <button className="inline-flex items-center px-2 py-2 font-normal dark:text-white text-white border-white rounded-full bg-amber-500 hover:bg-amber-600"><MdEditSquare className='text-[16px] text-white' /></button>
