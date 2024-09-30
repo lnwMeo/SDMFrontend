@@ -10,7 +10,7 @@ function Approvestor() {
         ขอยืม - ส่งคืน
       </p>
       <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-        <div className="h-full max-h-full p-3 mt-2 border rounded-md border-sky-300 font-prompt">
+        <div className="h-full max-h-full p-3 mt-2 rounded-md font-prompt">
           <p className="text-[16px] text-gray-900 font-normal dark:text-white">
             รออนุมัติขอยืม
           </p>
@@ -64,7 +64,7 @@ function Approvestor() {
             </table>
           </div>
         </div>
-        <div className="h-full max-h-full p-3 mt-2 border rounded-md border-amber-300 font-prompt">
+        <div className="h-full max-h-full p-3 mt-2 rounded-md  font-prompt">
           <p className="text-[16px] text-gray-900 font-normal dark:text-white">
             รอจ่ายครุภัณฑ์
           </p>
@@ -118,7 +118,7 @@ function Approvestor() {
             </table>
           </div>
         </div>
-        <div className="h-full max-h-full p-3 mt-2 border border-gray-300 rounded-md font-prompt">
+        <div className="h-full max-h-full p-3 mt-2  rounded-md font-prompt">
           <p className="text-[16px] text-gray-900 font-normal dark:text-white">
             รออนุมัติขอคืน
           </p>

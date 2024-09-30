@@ -8,9 +8,9 @@ import { FaWindowRestore } from "react-icons/fa";
 function TableStatus() {
   return (
     <>
-      <div className="p-2 mt-5 overflow-y-auto  border border-gray-200 rounded-lg font-prompt h-[450px] dark:border-violet-900">
+      <div className="p-2 mt-5 overflow-y-auto  rounded-lg font-prompt h-[450px]">
         <table className="w-full text-sm text-center text-gray-500 rtl:text-right">
-          <thead className="border border-gray-50 bg-indigo-950 dark:border-violet-900">
+          <thead className=" bg-indigo-950 ">
             <tr>
               <th
                 scope="col"
@@ -70,7 +70,7 @@ function TableStatus() {
             </tr>
           </thead>
           <tbody className="">
-            <tr className="border dark:border-violet-900">
+            <tr className="drop-shadow-md  dark:drop-shadow-md border dark:border-gray-800">
               <td
                 scope="row"
                 className="px-6 py-4 font-normal text-[12px] text-gray-900 dark:text-white"
@@ -116,7 +116,7 @@ function TableStatus() {
                 </div>
               </td>
             </tr>
-            <tr className="border dark:border-violet-900">
+            <tr className="drop-shadow-md  dark:drop-shadow-md border dark:border-gray-800">
               <td
                 scope="row"
                 className="px-6 py-4 font-normal text-[12px] text-gray-900 dark:text-white"
@@ -162,7 +162,7 @@ function TableStatus() {
                 </div>
               </td>
             </tr>
-            <tr className="border dark:border-violet-900">
+            <tr className="drop-shadow-md  dark:drop-shadow-md border dark:border-gray-800">
               <td
                 scope="row"
                 className="px-6 py-4 font-normal text-[12px] text-gray-900  dark:text-white"
@@ -208,7 +208,7 @@ function TableStatus() {
                 </div>
               </td>
             </tr>
-            <tr className="border dark:border-violet-900">
+            <tr className="drop-shadow-md  dark:drop-shadow-md border dark:border-gray-800">
               <td
                 scope="row"
                 className="px-6 py-4 font-normal text-[12px] text-gray-900  dark:text-white"

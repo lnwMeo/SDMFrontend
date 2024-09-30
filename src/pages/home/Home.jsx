@@ -160,26 +160,26 @@ function Home() {
         <div className="grid items-center col-span-6 px-5 py-5 text-center ">
           {/*pagination */}
           <div className=" ">
-            <div className="border bg-white dark:bg-gray-950 border-gray-200 dark:border-violet-900 join dark:text-white">
-              <button className="text-gray-950 bg-white dark:bg-gray-950 dark:text-white join-item btn border-gray-200 dark:border-violet-900">
+            <div className=" bg-white dark:bg-gray-950 join dark:text-white">
+              <button className="text-gray-950  bg-white dark:bg-gray-950 dark:text-white join-item btn ">
                 «
               </button>
-              <button className="text-gray-950 bg-white dark:bg-gray-950 dark:text-white  join-item btn border-gray-200 dark:border-violet-900">
+              <button className="text-gray-950 bg-white dark:bg-gray-950 dark:text-white  join-item btn ">
                 1
               </button>
-              <button className=" text-gray-950 bg-white dark:bg-gray-950 dark:text-white join-item btn border-gray-200 dark:border-violet-900">
+              <button className=" text-gray-950 bg-white dark:bg-gray-950 dark:text-white join-item btn ">
                 2
               </button>
-              <button className="text-gray-950 bg-white dark:bg-gray-950 dark:text-white join-item btn border-gray-200 dark:border-violet-900">
+              <button className="text-gray-950 bg-white dark:bg-gray-950 dark:text-white join-item btn ">
                 3
               </button>
-              <button className=" text-gray-950 bg-white dark:bg-gray-950 dark:text-white join-item btn border-gray-200 dark:border-violet-900">
+              <button className=" text-gray-950 bg-white dark:bg-gray-950 dark:text-white join-item btn ">
                 4
               </button>
-              <button className="text-gray-950 bg-white dark:bg-gray-950  dark:text-white join-item btn border-gray-200 dark:border-violet-900">
+              <button className="text-gray-950 bg-white dark:bg-gray-950  dark:text-white join-item btn ">
                 5
               </button>
-              <button className="text-gray-950 bg-white dark:bg-gray-950 dark:text-white join-item btn border-gray-200 dark:border-violet-900">
+              <button className="text-gray-950 bg-white dark:bg-gray-950 dark:text-white join-item btn ">
                 »
               </button>
             </div>

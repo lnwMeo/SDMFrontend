@@ -16,11 +16,11 @@ function Card({ productsDATA }) {
   }
   return (
     <>
-      <div className="grid grid-cols-2 gap-3 mt-5 mb-5 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8  ">
+      <div className="grid  grid-cols-2 gap-3 mt-5 mb-5 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8  ">
         {productsDATA.map((product) => (
           <div
             key={product.id}
-            className="max-w-sm bg-white dark:bg-gray-950 border rounded-lg border-violet-200 dark:border-violet-900 font-prompt hover:border-violet-700 overflow-hidden"
+            className="max-w-sm  drop-shadow-md  dark:shadow-md dark:shadow-gray-800/50 bg-white dark:bg-gray-950  rounded-lg  font-prompt hover:border-violet-700 overflow-hidden"
           >
             <img
               className="rounded-t-md min-w-full h-24 object-fill"

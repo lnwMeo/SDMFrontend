@@ -87,9 +87,9 @@ function TableReturn() {
 
   return (
     <>
-      <div className="p-2 mt-5 overflow-y-auto border border-gray-300 rounded-lg font-prompt h-[450px] dark:border-violet-900">
+      <div className="p-2 mt-5 overflow-y-auto  rounded-lg font-prompt h-[450px] ">
         <table className="w-full text-sm text-center text-gray-500 rtl:text-right">
-          <thead className="border border-gray-300  bg-violet-950 dark:border-violet-900">
+          <thead className="  bg-violet-950 ">
             <tr>
               <th
                 scope="col"
@@ -144,7 +144,7 @@ function TableReturn() {
           </thead>
           <tbody>
             {ProductData.map((product)=>(
-            <tr key={product.id} className="border border-gray-300 dark:border-violet-900">
+            <tr key={product.id} className="drop-shadow-md  dark:drop-shadow-md border dark:border-gray-800">
               <td
                 scope="row"
                 className="px-6 py-4 font-normal text-[12px] text-gray-900 dark:text-white"

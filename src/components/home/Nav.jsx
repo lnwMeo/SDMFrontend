@@ -17,7 +17,7 @@ const Nav = () => {
  
   return (
     <>
-      <nav className="  border-gray-100 rounded-lg border-y-2   font-prompt navbar dark:bg-gray-950 dark:border-violet-900">
+      <nav className="   rounded-lg   font-prompt navbar dark:bg-gray-950 ">
         <div className="navbar-start">
           <div className="dropdown z-10">
             <div
@@ -120,7 +120,7 @@ const Nav = () => {
               className="btn btn-ghost btn-circle hover:bg-violet-600"
             >
               <div className="avatar online placeholder ">
-                <div className="w-10 bg-white rounded-full text-neutral-content">
+                <div className="w-10 bg-white rounded-full text-neutral-content drop-shadow-md  dark:drop-shadow-md border dark:border-gray-800">
                   <FaUserCircle className="text-2xl text-violet-950" />
                 </div>
               </div>

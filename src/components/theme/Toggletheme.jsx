@@ -7,7 +7,7 @@ function Toggletheme() {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext); // ใช้ useContext เพื่อเชื่อมกับ ThemeContext
 
   return (
-    <div className="border border-violet-950 dark:border-amber-950 dark:bg-white rounded-full w-auto h-auto  flex items-center justify-items-center">
+    <div className="drop-shadow-md  dark:drop-shadow-md border dark:border-gray-800  dark:bg-white rounded-full w-auto h-auto  flex items-center justify-items-center">
       <label className="swap swap-rotate p-2">
         {/* this hidden checkbox controls the state */}
         <input
