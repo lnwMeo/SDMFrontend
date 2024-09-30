@@ -20,6 +20,10 @@ export default {
       },
       fontFamily:{
         'prompt':['Prompt', 'sans-serif']
+      },
+      backgroundImage: {
+        'hero-Auth': "url('../../assets/image/moon.jpg')",
+        
       }
     },
   },

@@ -138,7 +138,7 @@ function TableReturn() {
                 scope="col"
                 className="px-6 py-3 text-[12px] font-normal text-white dark:text-white "
               >
-                สถานะ
+               ส่งคืน
               </th>
             </tr>
           </thead>
