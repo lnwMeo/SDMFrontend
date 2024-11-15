@@ -6,7 +6,7 @@ import { FaCartPlus } from "react-icons/fa";
 import noimge from "../../assets/image/No_image.png";
 import { Comment } from "react-loader-spinner";
 
-function Card({ productsDATA, loading }) {
+function Card({ productsDATA, loading, addToBasket }) {
   //  สร้าง  useState เพิื่มเก็บข้อมูล
 
   if (loading) {
@@ -30,6 +30,8 @@ function Card({ productsDATA, loading }) {
       </div>
     );
   }
+
+
 
   return (
     <>
@@ -74,7 +76,7 @@ function Card({ productsDATA, loading }) {
                 <p className="mb-3 font-light text-gray-500 text-[12px] dark:text-amber-500">
                   {product.category_name}
                 </p>
-                <button className="flex items-center justify-center w-full font-normal text-center px-2 py-1 sm:text-[12px] text-[10px] text-white bg-violet-950 rounded-md hover:bg-violet-900 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                <button     onClick={() => addToBasket(product)}  className="flex items-center justify-center w-full font-normal text-center px-2 py-1 sm:text-[12px] text-[10px] text-white bg-violet-950 rounded-md hover:bg-violet-900 focus:ring-4 focus:outline-none focus:ring-blue-300">
                   <FaCartPlus className="mr-1" />
                   เพิ่มเข้าตะกร้า
                 </button>

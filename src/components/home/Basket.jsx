@@ -1,45 +1,98 @@
-import {React} from 'react'
-import CardBasket from './CardBasket'
-function Basket() {
+import { React } from "react";
+import CardBasket from "./CardBasket";
+function Basket({ basket, setBasket }) {
+  const removeFromBasket = (productId) => {
+    setBasket((prevBasket) =>
+      prevBasket.filter((item) => item.id !== productId)
+    );
+  };
   return (
-    <div className="h-full p-2 bg-white border border-gray-200  rounded-lg font-prompt">
-      <p className='mb-2 font-medium text-gray-900 text-md'>ตะกร้า</p>
-      <hr className='mb-2 border' />
-      <div className='p-2 overflow-y-auto max-h-96 h-96'>
-        <CardBasket />
-        <CardBasket />
-        <CardBasket />
-        <CardBasket />
-
-
-        {/* <p className='content-center text-sm font-light text-center text-gray-500'>  ยังไม่ได้เลือก ครุภัณฑ์</p> */}
-
-
+    <div className="bg-white modal-box dark:bg-slate-900">
+      <h3 className="font-medium text-gray-900 text-md text-[18px] dark:text-white">
+        ตะกร้า
+      </h3>
+      <div className="flex justify-between ">
+        <h3 className="font-medium text-gray-900 text-md dark:text-white">
+          รายละเอียด
+        </h3>
       </div>
-      <hr className='mt-2 mb-2 border' />
-      <div className="grid grid-cols-1 md:grid-cols-2 ">
-        <div className=''>
-          <p className='text-[14px] font-light text-gray-900'>วันที่ต้องการ ยืม</p>
-          <form action="" className='text-center '>
-            <input type="date" id="" name="" className='text-gray-500 bg-white text-[14px] border-2 rounded-md p-2 ' />
-          </form>
+      <hr className="mt-2 mb-2 border dark:border-violet-950" />
+      <div className="overflow-y-auto h-72 p-2">
+        {/* Map through basket and pass removeFromBasket */}
+        {basket.length > 0 ? (
+          basket.map((product) => (
+            <CardBasket
+              key={product.id}
+              product={product}
+              removeFromBasket={removeFromBasket}
+            />
+          ))
+        ) : (
+          <p className="text-center text-gray-500 dark:text-gray-300">
+            ยังไม่ได้เลือกครุภัณฑ์
+          </p>
+        )}
+      </div>
+      <hr className="mt-2 mb-2 border dark:border-violet-950" />
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="inline-flex items-center">
+          <p className="text-[14px] font-light text-gray-900 dark:text-white">
+            ผู้ยืม :{" "}
+          </p>
+          <p className="text-gray-900 dark:text-white text-[14px] text-center p-2">
+            ครู เพ็ญศรี
+          </p>
         </div>
-        <div className=''>
-          <p className='text-[14px] font-light text-gray-900'>วันที่ต้องการ คืน</p>
-          <form action="" className='text-center '>
-            <input type="date" id="" name="" className='text-gray-500 bg-white text-[14px] border-2 rounded-md p-2' />
-          </form>
+        <div className="inline-flex items-center">
+          <p className="text-[14px] font-light text-gray-900 dark:text-white">
+            หน่วยงาน :{" "}
+          </p>
+          <p className="text-gray-900 dark:text-white text-[14px] text-center p-2">
+            คณะครุศาสตร์
+          </p>
+        </div>
+        <div className="inline-flex items-center">
+          <p className="text-[14px] font-light text-gray-900 dark:text-white">
+            เบอร์โทร :{" "}
+          </p>
+          <p className="text-gray-900 dark:text-white text-[14px] text-center p-2">
+            0999999999
+          </p>
         </div>
       </div>
-      <hr className='mt-2 mb-2 border' />
-      <button href="#" className="items-center w-full px-2 py-2 text-sm text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 ">
-        ยืนยันการยืม
-      </button>
-      <p className='mt-2 text-[12px] font-light text-gray-500'>หมายเหตุ : เมื่อคลิก "ยืนยันการยืม" แล้วโปรดติดตามสถานะ เมื่อแสดงสถานะ "อนุมัติ" ให้ไปรับเครื่องที่สำนักคอมพิวเตอร์ ชั้น 3</p>
+      <div className="flex justify-around mt-2 mb-2">
+        <div className="items-center">
+          <p className="text-[14px] font-light text-gray-900 dark:text-white">
+            วันที่ต้องการ ยืม :
+          </p>
+          <input
+            type="date"
+            className="text-white bg-green-600 text-[14px] border-2 border-green-600 rounded-md p-2 dark:bg-gray-900 dark:border-green-500"
+          />
+        </div>
+        <div className="items-center">
+          <p className="text-[14px] font-light text-gray-900 dark:text-white">
+            วันที่ต้องการ ส่งคืน :
+          </p>
+          <input
+            type="date"
+            className="text-white bg-red-600 text-[14px] border-2 border-red-600 rounded-md p-2 dark:bg-gray-900 dark:border-red-500"
+          />
+        </div>
+      </div>
+      <hr className="mt-2 mb-2 border dark:border-violet-950" />
+      <div className="justify-center modal-action">
+        <form method="dialog">
+          <button className="font-normal text-white bg-green-600 border-white rounded-md inline-flex px-4 py-2 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[14px] gap-2 hover:bg-green-700">
+            ยืนยัน
+          </button>
+          <button className="font-normal ml-2 text-white bg-red-600 border-white rounded-md inline-flex px-4 py-2 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[14px] gap-2 hover:bg-red-700">
+            ยกเลิก
+          </button>
+        </form>
+      </div>
     </div>
-  )
+  );
 }
 
-
-
-export default Basket
+export default Basket;
