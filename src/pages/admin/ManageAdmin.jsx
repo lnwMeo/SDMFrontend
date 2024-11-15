@@ -1,5 +1,5 @@
 import React from 'react'
-import Layoutaddmin from '../../components/admin/LayoutAdmin'
+import Layoutaddmin from "../../components/layout/admin/LayoutAdmin";
 import { IoTrashBin } from "react-icons/io5";
 import { MdEditSquare } from "react-icons/md";
 import { IoMdAddCircle } from "react-icons/io";

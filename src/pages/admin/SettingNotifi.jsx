@@ -1,5 +1,5 @@
 import React from 'react'
-import Layoutaddmin from '../../components/admin/LayoutAdmin'
+import Layoutaddmin from "../../components/layout/admin/LayoutAdmin";
 import { IoMdAddCircle } from "react-icons/io";
 import { FaCircleXmark } from "react-icons/fa6";
 import { RiEditCircleFill } from "react-icons/ri";

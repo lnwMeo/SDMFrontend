@@ -1,5 +1,5 @@
 import React from 'react'
-import LayoutHome from '../../components/home/LayoutHome';
+import LayoutHome from "../../components/layout/home/LayoutHome";
 import TableStatus from '../../components/home/TableStatus';
 function StatusProduct() {
   return (

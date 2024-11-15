@@ -1,5 +1,5 @@
 import React from "react";
-import bgauth from "../../assets/image/cat2.jpg";
+import bgauth from "../../assets/image/g2.jpeg";
 
 
 function AuthUser() {

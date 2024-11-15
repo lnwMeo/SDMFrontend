@@ -1,5 +1,5 @@
 import React from "react";
-import Layoutaddmin from "../../components/admin/LayoutAdmin";
+import Layoutaddmin from "../../components/layout/admin/LayoutAdmin";
 import { BiSolidDetail } from "react-icons/bi";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaCircleXmark } from "react-icons/fa6";

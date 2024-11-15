@@ -1,5 +1,5 @@
 import React from "react";
-import bgad from "../../assets/image/catadmin.jpg";
+import bgad from "../../assets/image/g3.jpeg";
 
 function AuthAdmins() {
   return (

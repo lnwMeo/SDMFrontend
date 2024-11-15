@@ -182,7 +182,7 @@ function TableReturn() {
               </td>
               <td className="px-6 py-4 font-light text-[12px] text-white dark:text-white">
                 <button
-                  className="inline-flex gap-2 px-1 py-1 text-white bg-red-600 border-white rounded-md hover:bg-red-500 dark:text-white"
+                  className="inline-flex gap-2 px-1 py-1 text-white bg-pink-600 border-white rounded-md hover:bg-pink-500 dark:text-white"
                   onClick={handleReturn}
                 >
                   คืน ครุภัณฑ์

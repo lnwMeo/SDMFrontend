@@ -1,5 +1,5 @@
 import React from 'react'
-import Layoutaddmin from '../../components/admin/LayoutAdmin'
+import Layoutaddmin from "../../components/layout/admin/LayoutAdmin";
 import { MdAdminPanelSettings } from "react-icons/md";
 function Dashbord() {
   return (

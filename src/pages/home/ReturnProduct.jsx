@@ -1,5 +1,5 @@
 import React from 'react'
-import LayoutHome from '../../components/home/LayoutHome';
+import LayoutHome from "../../components/layout/home/LayoutHome";
 import TableReturn from '../../components/home/TableReturn';
 function ReturnProduct() {
   return (

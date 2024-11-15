@@ -1,11 +1,16 @@
 import React from "react";
-import Layoutaddmin from "../../components/admin/LayoutAdmin";
+import Layoutaddmin from "../../components/layout/admin/LayoutAdmin";
 import { IoMdAddCircle } from "react-icons/io";
 import { BiSolidDetail } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { MdQrCodeScanner } from "react-icons/md";
 import { IoCalendar } from "react-icons/io5";
+
+
+import ImgDropzone from "../../components/admin/imgDropzone";
+
+
 function Stor() {
   return (
     <Layoutaddmin>
@@ -504,34 +509,35 @@ function Stor() {
             </div>
             <hr className="mt-2 mb-2 border dark:border-violet-950" />
             {/* พื้นที่การ์ด */}
-            <div className="flex justify-center dark:bg-slate-800">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2  ">
-                <div className="flex items-center p-1 rounded-md  size-32 col">
-                  <img
-                    src="https://th-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c08473513_2_5.png"
-                    alt=""
-                  />
-                </div>
-                <div className="flex items-center p-1 rounded-md  size-32 col">
-                  <img
-                    src="https://th-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c08473513_2_5.png"
-                    alt=""
-                  />
-                </div>
-                <div className="flex items-center p-1 rounded-md  size-32 col">
-                  <img
-                    src="https://th-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c08473513_2_5.png"
-                    alt=""
-                  />
-                </div>
-                <div className="flex items-center p-1 rounded-md  size-32 col">
-                  <img
-                    src="https://th-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c08473513_2_5.png"
-                    alt=""
-                  />
-                </div>
+          
+                <ImgDropzone />
 
-                <div>
+                {/* <div className="flex items-center p-1 rounded-md  size-32 col">
+                  <img
+                    src="https://th-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c08473513_2_5.png"
+                    alt=""
+                  />
+                </div>
+                <div className="flex items-center p-1 rounded-md  size-32 col">
+                  <img
+                    src="https://th-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c08473513_2_5.png"
+                    alt=""
+                  />
+                </div>
+                <div className="flex items-center p-1 rounded-md  size-32 col">
+                  <img
+                    src="https://th-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c08473513_2_5.png"
+                    alt=""
+                  />
+                </div>
+                <div className="flex items-center p-1 rounded-md  size-32 col">
+                  <img
+                    src="https://th-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c08473513_2_5.png"
+                    alt=""
+                  />
+                </div> */}
+
+                {/* <div>
                   <label className="relative flex items-center justify-center w-32 h-32 border border-gray-400 border-dashed rounded-lg cursor-pointer">
                     <input
                       type="file"
@@ -548,9 +554,7 @@ function Stor() {
                       เพิ่มรูปภาพ
                     </span>
                   </label>
-                </div>
-              </div>
-            </div>
+            
 
             {/* พื้นที่การ์ด */}
             <hr className="mt-2 mb-2 border dark:border-violet-950" />
