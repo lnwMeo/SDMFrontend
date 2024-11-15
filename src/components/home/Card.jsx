@@ -11,15 +11,13 @@ import {
   listproductbycategory,
   listProductBySearch,
 } from "../../api/product";
-import CategorySelect from "./CategorySelect";
-import ProductSearch from "./ProductSearch";
 
-function Card() {
+
+function Card({ selectCategory, keyword }) {
   //  สร้าง  useState เพิื่มเก็บข้อมูล
   const [productsDATA, setProductDATA] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [selectCategory, setselectCategory] = useState("");
-  const [keyword, setKeyword] = useState("");
+
 
   const fetchProducts = async () => {
     try {
@@ -57,17 +55,7 @@ function Card() {
   }
   return (
     <>
-      <div className="flex items-center justify-between p-2 md:mt-5 font-prompt md:p-0">
-        <p className="content-center font-medium text-center text-gray-900 text-md dark:text-white">
-          ขอยืม ครุภัณฑ์
-        </p>
 
-        <div className="items-center  md:inline-flex gap-2">
-          <CategorySelect onSelectCategory={setselectCategory} />
-          <ProductSearch onSearch={setKeyword} />
-          {/* <CategorySearch /> */}
-        </div>
-      </div>
       {loading ? (
         <div className="flex  justify-center">
           <Comment
