@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import LayoutHome from "../../components/layout/home/LayoutHome";
 import Card from "../../components/home/Card";
 import Basket from "../../components/home/Basket";
@@ -7,10 +7,53 @@ import { FaBasketShopping } from "react-icons/fa6";
 
 import CategorySelect from "../../components/home/CategorySelect";
 import ProductSearch from "../../components/home/ProductSearch";
+import ReactPaginate from "react-paginate";
 
+import {
+  listProduct,
+  listproductbycategory,
+  listProductBySearch,
+} from "../../api/product";
 function Home() {
   const [selectCategory, setselectCategory] = useState("");
   const [keyword, setKeyword] = useState("");
+  const [productsDATA, setProductDATA] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0); // For pagination
+  const itemsPerPage = 16; // Set items per page
+
+  const fetchProducts = async () => {
+    try {
+      setLoading(true);
+      let response;
+      if (keyword) {
+        response = await listProductBySearch(keyword);
+      } else if (selectCategory) {
+        response = await listproductbycategory(selectCategory);
+      } else {
+        response = await listProduct();
+      }
+      setProductDATA(response.data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, [selectCategory, keyword]);
+
+  // logic สำหรับแบ่งหน้า
+  const pageCount = Math.ceil(productsDATA.length / itemsPerPage);
+  const handlePageClick = (event) => setCurrentPage(event.selected);
+
+  // สร้างข้อมูลที่แบ่งตามหน้า
+  const paginatedData = productsDATA.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
   return (
     <>
       <LayoutHome>
@@ -36,7 +79,30 @@ function Home() {
             {/* <CategorySearch /> */}
           </div>
         </div>
-        <Card selectCategory={selectCategory} keyword={keyword} />
+        <Card productsDATA={paginatedData} loading={loading} />
+        <div className="grid items-center col-span-6 px-5 py-5 text-center ">
+
+
+        {/* Component Pagination */}
+        <ReactPaginate
+          previousLabel={"<"}
+          nextLabel={">"}
+          breakLabel={"..."}
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={3}
+          onPageChange={handlePageClick}
+          containerClassName="flex justify-center list-none p-0 mx-3 my-3"
+          pageClassName="mx-1"
+          pageLinkClassName="px-3 py-1  sm:text-[12px] text-[10px]  cursor-pointer bg-indigo-600 text-white  text-gray-700 rounded-md hover:bg-indigo-800 font-prompt"
+          activeLinkClassName=" cursor-pointer text-white  bg-indigo-950"
+          previousClassName="mx-1"
+          nextClassName="mx-1"
+          breakClassName="mx-1"
+          previousLinkClassName="px-3 py-1  sm:text-[12px] text-[10px] cursor-pointer bg-indigo-700 text-white  text-gray-700 rounded-md hover:bg-indigo-600 font-prompt"
+          nextLinkClassName="px-3 py-1 sm:text-[12px] text-[10px]  cursor-pointer bg-indigo-700 text-white  text-gray-700 rounded-md hover:bg-indigo-600 font-prompt"
+        />
+        </div>
 
         <dialog
           id="my_modal_2"
@@ -124,6 +190,7 @@ function Home() {
             </div>
           </div>
         </dialog>
+
       </LayoutHome>
     </>
   );

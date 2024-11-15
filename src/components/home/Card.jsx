@@ -1,61 +1,38 @@
 // เลือกตามหมวดหมู่และเซิร์ต ยังไม่ได้
 
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { FaCartPlus } from "react-icons/fa";
 
 import noimge from "../../assets/image/No_image.png";
 import { Comment } from "react-loader-spinner";
 
-import {
-  listProduct,
-  listproductbycategory,
-  listProductBySearch,
-} from "../../api/product";
-
-
-function Card({ selectCategory, keyword }) {
+function Card({ productsDATA, loading }) {
   //  สร้าง  useState เพิื่มเก็บข้อมูล
-  const [productsDATA, setProductDATA] = useState([]);
-  const [loading, setLoading] = useState(false);
 
-
-  const fetchProducts = async () => {
-    try {
-      setLoading(true);
-      let response;
-      if (keyword) {
-        response = await listProductBySearch(keyword);
-      } else if (selectCategory) {
-        response = await listproductbycategory(selectCategory);
-      } else {
-        response = await listProduct();
-      }
-      setProductDATA(response.data); //มติว่า response.data คือข้อมูลสินค้า
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchProducts();
-  }, [selectCategory, keyword]);
-
-  if (
-    !productsDATA ||
-    !Array.isArray(productsDATA) ||
-    productsDATA.length === 0
-  ) {
+  if (loading) {
     return (
-      <div className=" flex justify-center">
-        <p className="font-prompt text-center text-white">ไม่มีครุภัณฑ์</p>
+      <div className="flex justify-center">
+        <Comment
+          visible={true}
+          height="100"
+          width="100"
+          color="#fff"
+          backgroundColor="#7f7fff"
+        />
       </div>
     );
   }
+
+  if (!productsDATA || productsDATA.length === 0) {
+    return (
+      <div className="flex justify-center">
+        <p className="font-prompt text-center dark:text-white text-gray-950">ไม่มีครุภัณฑ์</p>
+      </div>
+    );
+  }
+
   return (
     <>
-
       {loading ? (
         <div className="flex  justify-center">
           <Comment
@@ -91,7 +68,7 @@ function Card({ selectCategory, keyword }) {
               )}
 
               <div className="px-2 py-2">
-                <h5 className="truncate text-sm font-normal tracking-tight text-gray-950 dark:text-white md:text-md sm:text-sm lg:text-md">
+                <h5 className=" truncate text-sm font-normal tracking-tight text-gray-950 dark:text-white md:text-md sm:text-sm lg:text-md">
                   {product.productname}
                 </h5>
                 <p className="mb-3 font-light text-gray-500 text-[12px] dark:text-amber-500">
