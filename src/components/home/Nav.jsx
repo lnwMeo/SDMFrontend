@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 // import Logos from "./logo.png";
 // import cat from './assets/image/cat.png'
 import { FaUserCircle } from "react-icons/fa";
 
 import Toggletheme from "../theme/Toggletheme";
 
-import logo from '../../assets/image/logo.png'
+import logo from "../../assets/image/logo.png";
 
 const usertest = [
   {
@@ -14,7 +14,7 @@ const usertest = [
   },
 ];
 const Nav = () => {
- 
+  const navigate = useNavigate();
   return (
     <>
       <nav className="   rounded-lg   font-prompt navbar dark:bg-gray-950 ">
@@ -45,28 +45,28 @@ const Nav = () => {
               className="p-2 mt-3 bg-white shadow z-[0] menu menu-sm dropdown-content rounded-box w-52  "
             >
               <li>
-                <a
-                  href="/"
+                <button
+                  onClick={() => navigate("/")}
                   className="text-violet-950  hover:text-white hover:bg-violet-800"
                 >
                   ขอยืม ครุภัณฑ์
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="/returnproduct"
+                <button
+                  onClick={() => navigate("/returnproduct")}
                   className="text-violet-950  hover:text-white hover:bg-pink-600 "
                 >
                   ส่งคืน ครุภัณฑ์
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="/statusproduct"
+                <button
+                  onClick={() => navigate("/statusproduct")}
                   className="text-violet-950  hover:text-white hover:bg-amber-500"
                 >
                   สถานะ ขอยืม - ส่งคืน
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -79,28 +79,28 @@ const Nav = () => {
         <div className="hidden navbar-center lg:flex">
           <ul className="gap-3 px-1 menu menu-horizontal">
             <li>
-              <a
-                href="/"
+              <button
+                onClick={() => navigate("/")}
                 className="text-violet-950 hover:text-white hover:bg-violet-800 dark:text-white"
               >
                 ขอยืม ครุภัณฑ์
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="/returnproduct"
+              <button
+                onClick={() => navigate("/returnproduct")}
                 className="text-violet-950 hover:text-white hover:bg-pink-600 dark:text-white"
               >
                 ส่งคืน ครุภัณฑ์
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="/statusproduct"
+              <button
+                onClick={() => navigate("/statusproduct")}
                 className="text-violet-950 hover:text-white hover:bg-amber-500 dark:text-white"
               >
                 สถานะ ขอยืม - ส่งคืน
-              </a>
+              </button>
             </li>
           </ul>
         </div>
@@ -137,7 +137,7 @@ const Nav = () => {
               </li>
             </ul>
           </div>
-          <Toggletheme/>
+          <Toggletheme />
         </div>
       </nav>
     </>

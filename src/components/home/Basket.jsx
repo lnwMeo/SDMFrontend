@@ -1,21 +1,77 @@
-import { React } from "react";
+import {useEffect, useState } from "react";
 import CardBasket from "./CardBasket";
+
+
+
 function Basket({ basket, setBasket }) {
+  const [remainingTime, setRemainingTime] = useState(0); // ตั้งค่าเริ่มต้นเป็น 0
+  const [timerActive, setTimerActive] = useState(false); // ควบคุมการทำงานของตัวจับเวลา
+
   const removeFromBasket = (productId) => {
-    setBasket((prevBasket) =>
-      prevBasket.filter((item) => item.id !== productId)
-    );
+    setBasket((prevBasket) => prevBasket.filter((item) => item.id !== productId));
   };
+
+
+
+  useEffect(() => {
+    const savedBasket = localStorage.getItem("basket");
+    if (savedBasket) {
+      setBasket(JSON.parse(savedBasket)); // โหลดข้อมูลตะกร้า
+    }
+  }, [setBasket]);
+
+  useEffect(() => {
+    localStorage.setItem("basket", JSON.stringify(basket));
+  }, [basket]);
+
+  useEffect(() => {
+    if (basket.length > 0) {
+      setRemainingTime(5 * 60); // เริ่มต้นใหม่ทุกครั้งเมื่อมีสินค้าใน basket
+      setTimerActive(true); // เปิดใช้งานตัวจับเวลา
+    } else {
+      setRemainingTime(0); // รีเซ็ตเวลาเมื่อไม่มีสินค้า
+      setTimerActive(false); // ปิดใช้งานตัวจับเวลา
+    }
+  }, [basket]);
+
+  useEffect(() => {
+    if (!timerActive) return; // ถ้าตัวจับเวลาไม่ทำงาน ไม่ต้องนับถอยหลัง
+
+    const interval = setInterval(() => {
+      setRemainingTime((prev) => {
+        if (prev > 1) return prev - 1;
+        clearInterval(interval); // หยุดการนับถอยหลังเมื่อถึง 0
+        setBasket([]); // ล้างตะกร้าเมื่อหมดเวลา
+        return 0;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval); // ล้าง interval เมื่อ component unmount
+  }, [timerActive, setBasket]);
+
+
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs < 10 ? "0" + secs : secs}`;
+  };
+
   return (
     <div className="bg-white modal-box dark:bg-slate-900">
-      <h3 className="font-medium text-gray-900 text-md text-[18px] dark:text-white">
-        ตะกร้า
-      </h3>
       <div className="flex justify-between ">
-        <h3 className="font-medium text-gray-900 text-md dark:text-white">
-          รายละเอียด
-        </h3>
+        <div>
+          <h3 className="font-medium text-gray-900 text-md text-[18px] dark:text-white">
+            ตะกร้า
+          </h3>
+        </div>
+        <div className="text-right ">
+          <p className="text-amber-400">เวลาทำรายการที่เหลือ : {formatTime(remainingTime)} นาที</p><p className="text-xs">เมื่อหมดเวลาจะลบสินค้าทั้งหมดออกจากตะกร้า</p>
+        </div>
       </div>
+      <div className="flex justify-between "></div>
+      <h3 className="font-medium text-gray-900 text-md dark:text-white">
+        รายละเอียด
+      </h3>
       <hr className="mt-2 mb-2 border dark:border-violet-950" />
       <div className="overflow-y-auto h-72 p-2">
         {/* Map through basket and pass removeFromBasket */}

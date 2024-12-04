@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import {useRef, useCallback, useState, useEffect } from "react";
 import LayoutHome from "../../components/layout/home/LayoutHome";
 import Card from "../../components/home/Card";
 import Basket from "../../components/home/Basket";
@@ -6,7 +6,13 @@ import { FaBasketShopping } from "react-icons/fa6";
 import CategorySelect from "../../components/home/CategorySelect";
 import ProductSearch from "../../components/home/ProductSearch";
 import ReactPaginate from "react-paginate";
-import { listProduct, listproductbycategory, listProductBySearch } from "../../api/product";
+import {
+  listProduct,
+  listproductbycategory,
+  listProductBySearch,
+} from "../../api/product";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 function Home() {
   const [selectCategory, setselectCategory] = useState("");
@@ -16,39 +22,98 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 16;
   const [basket, setBasket] = useState([]);
+  // const [timer, setTimer] = useState(null);
+  const timerRef = useRef(null); // ใช้ useRef แทน state
+  const MySwal = withReactContent(Swal);
+  const Timeoutproduct = 5 * 60 * 1000;
 
-  const fetchProducts = async () => {
-    try {
-      setLoading(true);
-      let response;
-      if (keyword) {
-        response = await listProductBySearch(keyword);
-      } else if (selectCategory) {
-        response = await listproductbycategory(selectCategory);
-      } else {
-        response = await listProduct();
+  const fetchProducts = useCallback(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        let response;
+        if (keyword) {
+          response = await listProductBySearch(keyword);
+        } else if (selectCategory) {
+          response = await listproductbycategory(selectCategory);
+        } else {
+          response = await listProduct();
+        }
+        setProductDATA(response.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
       }
-      setProductDATA(response.data);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
+    fetchData();
+  }, [selectCategory, keyword]);
 
   const addToBasket = (product) => {
     setBasket((prevBasket) => [...prevBasket, product]);
   };
 
-  useEffect(() => {
-    fetchProducts();
-  }, [selectCategory, keyword]);
-
   const displayedProducts = productsDATA.filter(
     (product) => !basket.some((item) => item.id === product.id)
   );
 
-  const pageCount = Math.ceil(displayedProducts.length / itemsPerPage);
+  
+  const resetTimer = useCallback(() => {
+    if (basket.length === 0) return; // ถ้าตะกร้าว่าง ไม่ต้องตั้ง timer ใหม่
+  
+    // ล้าง timer เก่าถ้ามี
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      console.log("Cleared previous timer:", timerRef.current);
+    }
+  
+    timerRef.current = setTimeout(() => {
+      setBasket([]); // ล้างตะกร้า
+      MySwal.fire({
+        title: "หมดเวลาการทำรายการ!",
+        text: "สินค้าที่เลือกไว้ถูกลบออกจากตะกร้า",
+        icon: "warning",
+        confirmButtonText: "ตกลง",
+        customClass: {
+          title: "text-xl font-normal font-prompt text-gray-900",
+          content: "text-sm font-prompt text-gray-700",
+          confirmButton:
+            "bg-blue-500 font-prompt hover:bg-blue-600 text-white font-normal py-2 px-4 rounded",
+        },
+      });
+    }, Timeoutproduct); // ตั้ง timer ใหม่
+  
+    console.log("New timer set:", timerRef.current);
+  }, [basket, Timeoutproduct]); 
+  
+  const clearBasket = () => {
+    setBasket([]);
+  };
+  // useEffect(() => {
+  //   resetTimer(); // รีเซ็ต Timer ทุกครั้งที่ตะกร้าเปลี่ยน
+  // }, [basket]);
+  useEffect(() => {
+    if (basket.length === 0) {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current); // ล้าง timer ถ้า basket ว่าง
+        timerRef.current = null;
+        console.log("Timer cleared as basket is empty");
+      }
+    } else {
+      resetTimer(); // เรียก resetTimer ถ้า basket มีสินค้า
+    }
+  }, [basket, resetTimer]); // `resetTimer` ปลอดภัยเพราะใช้ useCallback
+  
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
+
+  // const pageCount = Math.ceil(displayedProducts.length / itemsPerPage);
+  const pageCount = Math.max(
+    1,
+    Math.ceil(displayedProducts.length / itemsPerPage)
+  );
   const handlePageClick = (event) => setCurrentPage(event.selected);
   const paginatedData = displayedProducts.slice(
     currentPage * itemsPerPage,
@@ -79,7 +144,11 @@ function Home() {
             <ProductSearch onSearch={setKeyword} />
           </div>
         </div>
-        <Card productsDATA={paginatedData} loading={loading} addToBasket={addToBasket} />
+        <Card
+          productsDATA={paginatedData}
+          loading={loading}
+          addToBasket={addToBasket}
+        />
         <div className="grid items-center col-span-6 px-5 py-5 text-center ">
           <ReactPaginate
             previousLabel={"<"}
@@ -104,7 +173,7 @@ function Home() {
           id="my_modal_2"
           className=" modal modal-bottom sm:modal-middle font-prompt"
         >
-          <Basket id="my_modal_2" basket={basket} setBasket={setBasket}/>
+          <Basket id="my_modal_2" basket={basket} setBasket={setBasket} clearBasket={clearBasket}/>
         </dialog>
       </LayoutHome>
     </>

@@ -2,8 +2,8 @@ import React from "react";
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Link,
+  // Route,
+  // Link,
 } from "react-router-dom";
 
 import ReactDOM from "react-dom/client";
@@ -21,9 +21,17 @@ import ProductTracking from "./pages/admin/ProductTracking.jsx";
 import ReturnsHistoryProduct from "./pages/admin/ReturnsHistoryProduct.jsx";
 import SettingNotifi from "./pages/admin/SettingNotifi.jsx";
 import ManageAdmin from "./pages/admin/ManageAdmin.jsx";
+import Fromaddproduct from "./pages/admin/Fromaddproduct.jsx";
 
 import AuthUser from "./pages/Auth/AuthUser.jsx";
 import AuthAdmins from "./pages/Auth/AuthAdmins.jsx";
+
+import Settingfrom from "./pages/admin/Settingfrom.jsx";
+
+import { ToastContainer } from "react-toastify"; // Import ToastContainer
+import "react-toastify/dist/ReactToastify.css"; // Import CSS for Toast
+
+
 
 const router = createBrowserRouter([
   {
@@ -67,6 +75,14 @@ const router = createBrowserRouter([
     element: <ManageAdmin />,
   },
   {
+    path: "/admin/Fromaddproduct",
+    element: <Fromaddproduct />,
+  },
+  {
+    path: "/admin/settingfrom",
+    element: <Settingfrom />,
+  },
+  {
     path: "/Login",
     element: <AuthUser />,
   },
@@ -74,10 +90,24 @@ const router = createBrowserRouter([
     path: "/Login/LoginAD",
     element: <AuthAdmins />,
   },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition:Bounce
+      />
   </React.StrictMode>
 );

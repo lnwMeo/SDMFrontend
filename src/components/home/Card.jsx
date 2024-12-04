@@ -25,7 +25,7 @@ function Card({ productsDATA, loading, addToBasket }) {
 
   if (!productsDATA || productsDATA.length === 0) {
     return (
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-5">
         <p className="font-prompt text-center dark:text-white text-gray-950">ไม่มีครุภัณฑ์</p>
       </div>
     );

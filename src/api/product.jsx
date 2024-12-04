@@ -15,3 +15,13 @@ export const listProductBySearch = async (keyword = "") => {
     `http://localhost:8000/api/listProductBySearch?keyword=${keyword}`
   );
 };
+
+
+//ต้องเพิ่มการตรวจเช็คว่าเป็น Admin ไหม
+export const CreateProduct = async (productData) => {
+  return axios.post('http://localhost:8000/api/createProduct',productData,{
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};

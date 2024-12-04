@@ -1,17 +1,126 @@
-import React from "react";
 import Layoutaddmin from "../../components/layout/admin/LayoutAdmin";
 import { IoMdAddCircle } from "react-icons/io";
 import { BiSolidDetail } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { MdQrCodeScanner } from "react-icons/md";
-import { IoCalendar } from "react-icons/io5";
-
-
-import ImgDropzone from "../../components/admin/imgDropzone";
-
+import { useNavigate } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 function Stor() {
+  const navigate = useNavigate();
+  const products = [
+    {
+      id: 1,
+      name: "Notebook HP G10 N.1",
+      serialNumber: "MK0998VLLL",
+      productNumber: "คต093238495",
+      brand: "HP",
+      model: "Probook",
+      category: "โน๊ตบุ๊ค",
+      expiryDate: "15/12/68",
+      status: "อยู่ในคลัง",
+    },
+    {
+      id: 2,
+      name: "Notebook Lenovo IdeaPad 3",
+      serialNumber: "LV9384DFFE",
+      productNumber: "คต93847293",
+      brand: "Lenovo",
+      model: "IdeaPad",
+      category: "โน๊ตบุ๊ค",
+      expiryDate: "30/12/68",
+      status: "ถูกยืม",
+    },
+    {
+      id: 3,
+      name: "Notebook Lenovo IdeaPad 3",
+      serialNumber: "LV9384DFFE",
+      productNumber: "คต93847293",
+      brand: "Lenovo",
+      model: "IdeaPad",
+      category: "โน๊ตบุ๊ค",
+      expiryDate: "30/12/68",
+      status: "ถูกยืม",
+    },
+    {
+      id: 4,
+      name: "Notebook Lenovo IdeaPad 3",
+      serialNumber: "LV9384DFFE",
+      productNumber: "คต93847293",
+      brand: "Lenovo",
+      model: "IdeaPad",
+      category: "โน๊ตบุ๊ค",
+      expiryDate: "30/12/68",
+      status: "ถูกยืม",
+    },
+    {
+      id: 5,
+      name: "Notebook Lenovo IdeaPad 3",
+      serialNumber: "LV9384DFFE",
+      productNumber: "คต93847293",
+      brand: "Lenovo",
+      model: "IdeaPad",
+      category: "โน๊ตบุ๊ค",
+      expiryDate: "30/12/68",
+      status: "ถูกยืม",
+    },
+    {
+      id: 6,
+      name: "Notebook Lenovo IdeaPad 3",
+      serialNumber: "LV9384DFFE",
+      productNumber: "คต93847293",
+      brand: "Lenovo",
+      model: "IdeaPad",
+      category: "โน๊ตบุ๊ค",
+      expiryDate: "30/12/68",
+      status: "ถูกยืม",
+    },
+    {
+      id: 7,
+      name: "Notebook Lenovo IdeaPad 3",
+      serialNumber: "LV9384DFFE",
+      productNumber: "คต93847293",
+      brand: "Lenovo",
+      model: "IdeaPad",
+      category: "โน๊ตบุ๊ค",
+      expiryDate: "30/12/68",
+      status: "ถูกยืม",
+    },
+    {
+      id: 7,
+      name: "Notebook Lenovo IdeaPad 3",
+      serialNumber: "LV9384DFFE",
+      productNumber: "คต93847293",
+      brand: "Lenovo",
+      model: "IdeaPad",
+      category: "โน๊ตบุ๊ค",
+      expiryDate: "30/12/68",
+      status: "ถูกยืม",
+    },
+    {
+      id: 7,
+      name: "Notebook Lenovo IdeaPad 3",
+      serialNumber: "LV9384DFFE",
+      productNumber: "คต93847293",
+      brand: "Lenovo",
+      model: "IdeaPad",
+      category: "โน๊ตบุ๊ค",
+      expiryDate: "30/12/68",
+      status: "ถูกยืม",
+    },
+    {
+      id: 7,
+      name: "Notebook Lenovo IdeaPad 3",
+      serialNumber: "LV9384DFFE",
+      productNumber: "คต93847293",
+      brand: "Lenovo",
+      model: "IdeaPad",
+      category: "โน๊ตบุ๊ค",
+      expiryDate: "30/12/68",
+      status: "ถูกยืม",
+    },
+  ];
   return (
     <Layoutaddmin>
       <p className="text-3xl text-slate-900 font-prompt dark:text-white">
@@ -22,22 +131,34 @@ function Stor() {
           <p className="text-[14px] text-gray-900 font-normal dark:text-white">
             หมวดหมู่ครุภัณฑ์
           </p>
-
-          <select className="w-full max-w-xs text-gray-900 bg-white dark:bg-gray-900 dark:text-white dark:border-violet-950 border-gray-300 select select-sm text-[14px]">
-            <option>เลือกหมวดหมู่</option>
-            <option>English</option>
-            <option>Japanese</option>
-            <option>Italian</option>
-          </select>
-
-          <button
-            className="text-[14px] p-1 bg-green-500 text-white hover:text-white hover:bg-green-700 rounded-md inline-flex gap-2 items-center"
-            onClick={() => document.getElementById("my_modal_4").showModal()}
-          >
-            {" "}
-            <IoMdAddCircle className="text-xl" />
-            เพิ่ม
-          </button>
+          <div className="inline-flex gap-2">
+            <select className="w-full max-w-xs text-gray-900 bg-white dark:bg-gray-900 dark:text-white dark:border-violet-950 border-gray-300 select select-sm text-[14px]">
+              <option>เลือกหมวดหมู่</option>
+              <option>English</option>
+              <option>Japanese</option>
+              <option>Italian</option>
+            </select>
+            <div className="relative mt-2  md:mt-0  ">
+              <div className="absolute inset-y-0 start-0 flex items-center  ps-3 pointer-events-none rounded-s-lg pr-2 ">
+                <FaSearch className="w-4 h-4 text-gray-900 dark:text-white" />
+              </div>
+              <input
+                type="search"
+                className="block w-full p-2 ps-10 text-[14px] dark:bg-gray-900 dark:text-white text-gray-900  rounded-lg bg-white input-sm dark:border-violet-900 "
+                placeholder="ค้นหา"
+              />
+            </div>
+          </div>
+          <div className="">
+            <button
+              className="text-[14px] p-1 bg-green-500 text-white hover:text-white hover:bg-green-700 rounded-md inline-flex gap-2 items-center"
+              onClick={() => navigate("/admin/Fromaddproduct")}
+            >
+              {" "}
+              <IoMdAddCircle className="text-xl" />
+              เพิ่ม ครุภัณฑ์
+            </button>
+          </div>
         </div>
 
         <div className="relative mt-2  overflow-x-auto border dark:border-violet-950 sm:rounded-lg">
@@ -118,191 +239,79 @@ function Stor() {
                 </th>
               </tr>
             </thead>
-            <tbody>
-              <tr className="">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white"
-                >
-                  1
-                </th>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white">
-                  Notebook HP G10 N.1
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  MK0998VLLL
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  คต093238495
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  HP
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  Probook
-                </td>
-
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  โน๊ตบุ๊ค
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-white dark:text-white">
-                  <p className="bg-red-700 rounded-md">15/12/68</p>
-                </td>
-
-                <td className="px-6 py-4 font-light text-[12px] text-white  dark:text-white">
-                  <p className="bg-gray-500 rounded-md">อยู่ในคลัง</p>
-                </td>
-                <td className="px-6 py-4 ">
-                  <button
-                    className="p-1 bg-blue-700 rounded-md hover:bg-blue-800"
-                    onClick={() =>
-                      document.getElementById("my_modal_5").showModal()
-                    }
+            <tbody className="bg-gray-50 dark:bg-gray-950">
+              {products.map((product, index) => (
+                <tr key={product.id}>
+                  <th
+                    scope="row"
+                    className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white"
                   >
-                    <BiSolidDetail className="text-[16px] text-white dark:text-white" />
-                  </button>
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] ">
-                  <input
-                    type="checkbox"
-                    className="toggle toggle-sm toggle-success [--tglbg:white] "
-                    defaultChecked
-                  />
-                </td>
-                <td className="px-6 py-4 ">
-                  <div className="inline-flex gap-2">
-                    <button className="p-1 rounded-md bg-amber-500 hover:bg-amber-700">
-                      <FaEdit className="text-[16px] text-white dark:text-white" />
-                    </button>
-                    <button className="p-1 bg-red-500 rounded-md hover:bg-red-800">
-                      <MdDelete className="text-[16px] text-white dark:text-white" />
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white"
-                >
-                  1
-                </th>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white ">
-                  Notebook HP G10 N.1
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  MK0998VLLL
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  คต093238495
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  HP
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  Probook
-                </td>
+                    {index + 1}
+                  </th>
+                  <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white ">
+                    {product.name}
+                  </td>
+                  <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
+                    {product.serialNumber}
+                  </td>
+                  <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
+                    {product.productNumber}
+                  </td>
+                  <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
+                    {product.brand}
+                  </td>
+                  <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
+                    {product.model}
+                  </td>
 
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  โน๊ตบุ๊ค
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-white dark:text-white">
-                  <p className="bg-red-700 rounded-md">15/12/68</p>
-                </td>
+                  <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
+                    {product.category}
+                  </td>
+                  <td className="px-6 py-4 font-light text-[12px] text-red-600 dark:text-red-500">
+                    {product.expiryDate}
+                  </td>
 
-                <td className="px-6 py-4 font-light text-[12px] text-white dark:text-white">
-                  <p className="bg-gray-500 rounded-md">อยู่ในคลัง</p>
-                </td>
-                <td className="px-6 py-4 ">
-                  <button
-                    className="p-1 bg-blue-700 rounded-md hover:bg-blue-800"
-                    onClick={() =>
-                      document.getElementById("my_modal_5").showModal()
-                    }
+                  <td
+                    className={`px-6 py-4 font-light text-[12px] ${
+                      product.status === "อยู่ในคลัง"
+                        ? "text-emerald-600  dark:text-emerald-400"
+                        : "text-gray-600 dark:text-gray-600"
+                    }`}
                   >
-                    <BiSolidDetail className="text-[16px] text-white dark:text-white" />
-                  </button>
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] ">
-                  <input
-                    type="checkbox"
-                    className="toggle toggle-sm toggle-success [--tglbg:white] "
-                    defaultChecked
-                  />
-                </td>
-                <td className="px-6 py-4 ">
-                  <div className="inline-flex gap-2">
-                    <button className="p-1 rounded-md bg-amber-500 hover:bg-amber-700">
-                      <FaEdit className="text-[16px] text-white dark:text-white" />
-                    </button>
-                    <button className="p-1 bg-red-500 rounded-md hover:bg-red-800">
-                      <MdDelete className="text-[16px] text-white dark:text-white" />
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white"
-                >
-                  1
-                </th>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white">
-                  Notebook HP G10 N.1
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  MK0998VLLL
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  คต093238495
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  HP
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  Probook
-                </td>
+                    {product.status}
+                  </td>
 
-                <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
-                  โน๊ตบุ๊ค
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] text-white dark:text-white">
-                  <p className="bg-red-700 rounded-md">15/12/68</p>
-                </td>
+                  <td className="px-6 py-4 ">
+                    <button
+                      className="p-1 bg-blue-700 rounded-md hover:bg-blue-800"
+                      onClick={() =>
+                        document.getElementById("my_modal_5").showModal()
+                      }
+                    >
+                      <BiSolidDetail className="text-[16px] text-white dark:text-white" />
+                    </button>
+                  </td>
+                  <td className="px-6 py-4 font-light text-[12px] ">
+                    <input
+                      type="checkbox"
+                      className="toggle toggle-sm toggle-success [--tglbg:white] "
+                      defaultChecked
+                    />
+                  </td>
+                  <td className="px-6 py-4 ">
+                    <div className="inline-flex gap-2">
+                      <button className="p-1 rounded-md bg-amber-500 hover:bg-amber-700">
+                        <FaEdit className="text-[16px] text-white dark:text-white" />
+                      </button>
+                      <button className="p-1 bg-red-500 rounded-md hover:bg-red-800">
+                        <MdDelete className="text-[16px] text-white dark:text-white" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
 
-                <td className="px-6 py-4 font-light text-[12px] text-white  dark:text-white">
-                  <p className="bg-gray-500 rounded-md">อยู่ในคลัง</p>
-                </td>
-                <td className="px-6 py-4 ">
-                  <button
-                    className="p-1 bg-blue-700 rounded-md hover:bg-blue-800"
-                    onClick={() =>
-                      document.getElementById("my_modal_5").showModal()
-                    }
-                  >
-                    <BiSolidDetail className="text-[16px] text-white dark:text-white" />
-                  </button>
-                </td>
-                <td className="px-6 py-4 font-light text-[12px] ">
-                  <input
-                    type="checkbox"
-                    className="toggle toggle-sm toggle-success [--tglbg:white] "
-                    defaultChecked
-                  />
-                </td>
-                <td className="px-6 py-4 ">
-                  <div className="inline-flex gap-2">
-                    <button className="p-1 rounded-md bg-amber-500 hover:bg-amber-700">
-                      <FaEdit className="text-[16px] text-white dark:text-white" />
-                    </button>
-                    <button className="p-1 bg-red-500 rounded-md hover:bg-red-800">
-                      <MdDelete className="text-[16px] text-white dark:text-white" />
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr className="">
+              {/* <tr className="">
                 <th
                   scope="row"
                   className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white"
@@ -328,12 +337,12 @@ function Stor() {
                 <td className="px-6 py-4 font-light text-[12px] text-gray-900 dark:text-white hidden md:table-cell">
                   โน๊ตบุ๊ค
                 </td>
-                <td className="px-6 py-4 font-light text-[12px] text-white dark:text-white">
-                  <p className="bg-red-700 rounded-md">15/12/68</p>
+                <td className="px-6 py-4 font-light text-[12px] text-red-600 dark:text-red-500">
+                  15/12/68
                 </td>
 
-                <td className="px-6 py-4 font-light text-[12px] text-white dark:text-white">
-                  <p className="bg-green-600 rounded-md">ถูกยืม</p>
+                <td className="px-6 py-4 font-light text-[12px] text-gray-600 dark:text-gray-600">
+                  ถูกยืม
                 </td>
                 <td className="px-6 py-4 ">
                   <button
@@ -362,7 +371,7 @@ function Stor() {
                     </button>
                   </div>
                 </td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
         </div>
@@ -495,169 +504,6 @@ function Stor() {
           </div>
         </dialog>
         {/* รายละเอียด */}
-
-
-
-
-        {/* form add to stor */}
-        <dialog id="my_modal_4" className="modal">
-          <div className=" max-w-5xl bg-white dark:bg-gray-900 modal-box">
-            <div className="flex items-center justify-between">
-              <h3 className="font-medium text-gray-900 dark:text-white text-md">
-                เพิ่มครุภัณฑ์
-              </h3>
-            </div>
-            <hr className="mt-2 mb-2 border dark:border-violet-950" />
-            {/* พื้นที่การ์ด */}
-          
-                <ImgDropzone />
-
-                {/* <div className="flex items-center p-1 rounded-md  size-32 col">
-                  <img
-                    src="https://th-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c08473513_2_5.png"
-                    alt=""
-                  />
-                </div>
-                <div className="flex items-center p-1 rounded-md  size-32 col">
-                  <img
-                    src="https://th-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c08473513_2_5.png"
-                    alt=""
-                  />
-                </div>
-                <div className="flex items-center p-1 rounded-md  size-32 col">
-                  <img
-                    src="https://th-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c08473513_2_5.png"
-                    alt=""
-                  />
-                </div>
-                <div className="flex items-center p-1 rounded-md  size-32 col">
-                  <img
-                    src="https://th-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c08473513_2_5.png"
-                    alt=""
-                  />
-                </div> */}
-
-                {/* <div>
-                  <label className="relative flex items-center justify-center w-32 h-32 border border-gray-400 border-dashed rounded-lg cursor-pointer">
-                    <input
-                      type="file"
-                      className="absolute inset-0 opacity-0 cursor-pointer"
-                      multiple
-                      accept="image/*"
-                    />
-
-                    <span className="text-4xl font-light text-gray-400">
-                      {" "}
-                      <IoMdAddCircle className="text-xl text-center" />
-                    </span>
-                    <span className="text-gray-400 text-[14px] font-light text-center ml-1 dark:text-white">
-                      เพิ่มรูปภาพ
-                    </span>
-                  </label>
-            
-
-            {/* พื้นที่การ์ด */}
-            <hr className="mt-2 mb-2 border dark:border-violet-950" />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-              <div className="inline-flex items-center gap-2 mt-2">
-                <p className="text-[14px] font-light text-gray-900 dark:text-white">
-                  ชื่อครุภัณฑ์ :{" "}
-                </p>
-                <input
-                  type="text"
-                  id="small-input"
-                  className="p-2 text-[14px] font-light text-gray-900 dark:bg-gray-900 dark:text-white dark:border-violet-600 border focus:outline-none focus:ring focus:ring-violet-300 rounded-md bg-gray-50 "
-                />
-              </div>
-              <div className="inline-flex items-center gap-2 mt-2">
-                <p className="text-[14px] font-light text-gray-900 dark:text-white">
-                  Sereal Number :{" "}
-                </p>
-                <input
-                  type="text"
-                  id="small-input"
-                  className="p-2 text-[14px] font-light text-gray-900 dark:bg-gray-900 dark:text-white dark:border-violet-600 border focus:outline-none focus:ring focus:ring-violet-300 rounded-md bg-gray-50 "
-                />
-              </div>
-              <div className="inline-flex items-center gap-2 mt-2">
-                <p className="text-[14px] font-light text-gray-900 dark:text-white">
-                  เลขครุภัณฑ์ :{" "}
-                </p>
-                <input
-                  type="text"
-                  id="small-input"
-                  className="p-2 text-[14px] font-light text-gray-900 dark:bg-gray-900 dark:text-white dark:border-violet-600  border focus:outline-none focus:ring focus:ring-violet-300 rounded-md bg-gray-50 "
-                />
-              </div>
-              <div className="inline-flex items-center gap-2 mt-2">
-                <p className="text-[14px] font-light text-gray-900 dark:text-white">
-                  ยี้ห้อ :{" "}
-                </p>
-                <select className="w-auto max-w-xs text-gray-900 bg-white dark:bg-gray-900 dark:text-white dark:border-violet-600  border-gray-300 select select-sm text-[14px]">
-                  <option>เลือกยี้ห้อ</option>
-
-                  <option>HP</option>
-                  <option>Lenovo</option>
-                  <option>Dell</option>
-                </select>
-              </div>
-              <div className="inline-flex items-center gap-2 mt-2">
-                <p className="text-[14px] font-light text-gray-900 dark:text-white">รุ่น : </p>
-                <select className="w-auto max-w-xs text-gray-900 bg-white dark:bg-gray-900 dark:text-white dark:border-violet-600 border-gray-300 select select-sm text-[14px]">
-                  <option>เลือกรุ่น</option>
-                  <option>Probook</option>
-                  <option>Thigpad X1</option>
-                  <option>Thigpad X1 supper</option>
-                  <option>Tower</option>
-                </select>
-              </div>
-              <div className="inline-flex items-center gap-2 mt-2">
-                <p className="text-[14px] font-light text-gray-900 dark:text-white">
-                  หมวดหมู่ :{" "}
-                </p>
-                <select className="w-auto max-w-xs text-gray-900 bg-white dark:bg-gray-900 dark:text-white dark:border-violet-600  border-gray-300 select select-sm text-[14px]">
-                  <option>เลือกหมวดหมู่</option>
-                  <option>โน๊ตบุ๊ค</option>
-                  <option>สวิตซ์</option>
-                  <option>เราเตอร์</option>
-                </select>
-              </div>
-              <div className="inline-flex items-center gap-2 mt-2">
-                <p className="text-[14px] font-light text-gray-900 dark:text-white">
-                  วันเริ่มสัญญา :{" "}
-                </p>
-                <input
-                  id=""
-                  type="date"
-                  className="p-2 text-[14px] bg-green-700 dark:bg-gray-900 dark:border-green-500 text-gray-50 border border-green-500 rounded-md dark:text-white"
-                />
-              </div>
-              <div className="inline-flex items-center gap-2 mt-2">
-                <p className="text-[14px] font-light text-gray-900 dark:text-white">
-                  วันหมดอายุสัญญา :{" "}
-                </p>
-                <input
-                  id=""
-                  type="date"
-                  className="p-2 text-[14px] bg-red-600 dark:bg-gray-900 dark:border-red-500 text-gray-50 border border-red-500 rounded-md"
-                />
-              </div>
-            </div>
-            <hr className="mt-2 mb-2 border dark:border-violet-950" />
-            <div className="justify-center modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="font-normal text-white dark:text-white bg-green-600 border-white rounded-md inline-flex px-4 py-2 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[14px] gap-2 hover:bg-green-500">
-                  ยืนยัน
-                </button>
-                <button className="font-normal ml-2 text-white dark:text-white bg-red-600 border-white rounded-md inline-flex px-4 py-2 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[14px] gap-2 hover:bg-red-500">
-                  ยกเลิก
-                </button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-        {/* form add to stor */}
       </div>
     </Layoutaddmin>
   );
