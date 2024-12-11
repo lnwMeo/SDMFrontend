@@ -16,7 +16,7 @@ const Layoutaddmin = ({ children }) => {
 
       
           <div
-            className="flex-grow transition-all duration-300 ml-16 "
+            className="flex-grow transition-all duration-300 ml-14 "
           >
             <Nav  />
             <main className="p-4">{children}</main>

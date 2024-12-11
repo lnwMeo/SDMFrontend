@@ -21,7 +21,7 @@ export const listProductBySearch = async (keyword = "") => {
 export const CreateProduct = async (productData) => {
   return axios.post('http://localhost:8000/api/createProduct',productData,{
     headers: {
-      "Content-Type": "application/json",
+     "Content-Type": "multipart/form-data",
     },
   });
 };

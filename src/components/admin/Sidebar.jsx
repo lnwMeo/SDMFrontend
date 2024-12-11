@@ -18,7 +18,7 @@ function Sidebar({ isCollapsed, toggleSidebar }) {
     <>
       <aside
         className={`fixed flex flex-col  ${
-          isCollapsed ? "w-16" : "w-64 z-[99999] shadow-md"
+          isCollapsed ? "w-14" : "w-64 z-[99999] shadow-md"
         } h-full transition-width duration-200 bg-gradient-to-b from-indigo-950 to-gray-950 rounded-r-md font-prompt p-2`}
       >
         <div

@@ -37,6 +37,11 @@ const CrudModal = () => {
     }
   };
 
+  const headleRefreshBrand = async () => {
+    fetchBrands();
+    setSelectBrand("");
+  };
+
   const headleAddModal = async () => {
     if (!selectBrand || !newModal.trim()) {
       toast.warn("กรุณาเลือกยี้ห้อและกรอกชื่อรุ่น");
@@ -83,22 +88,35 @@ const CrudModal = () => {
       cancelButtonText: "ยกเลิก",
       customClass: {
         popup: "text-white dark:bg-gray-800  rounded-lg",
-        title: "text-xl font-normal font-prompt text-gray-900 dark:text-white", // ใช้ Tailwind สำหรับ title
-        content: "text-sm font-prompt  text-gray-700 dark:text-white", // ใช้ Tailwind สำหรับ content
+        title: "text-xl font-normal font-prompt text-gray-900 dark:text-white",
+        content: "text-sm font-prompt text-gray-700 dark:text-white",
         confirmButton:
-          "bg-blue-500 font-prompt  hover:bg-blue-600 text-white font-normal  py-2 px-4 rounded",
+          "bg-blue-500 font-prompt hover:bg-blue-600 text-white font-normal py-2 px-4 rounded",
         cancelButton:
-          "bg-red-500 font-prompt  hover:bg-red-600 text-white font-normal  py-2 px-4 rounded",
+          "bg-red-500 font-prompt hover:bg-red-600 text-white font-normal py-2 px-4 rounded",
       },
     });
+
     if (result.isConfirmed) {
       try {
-        await removeModal(id);
+        await removeModal(id); // ลบข้อมูลผ่าน API
         toast.success("ลบรุ่นสำเร็จ !");
-        fetchBrandModal();
+
+        fetchBrandModal(); // อัปเดตข้อมูลใหม่หลังจากลบสำเร็จ
       } catch (error) {
         console.error(error);
-        toast.error("เกิดข้อผิดพลาดในการลบ");
+
+        // แสดงข้อความข้อผิดพลาดผ่าน toast
+        if (error.response?.data?.message) {
+          // ข้อความจากเซิร์ฟเวอร์
+          toast.error(`ข้อผิดพลาด: ${error.response.data.message}`);
+        } else if (error.message) {
+          // ข้อความทั่วไป เช่น network error
+          toast.error(`ข้อผิดพลาด: ${error.message}`);
+        } else {
+          // ข้อผิดพลาดที่ไม่รู้จัก
+          toast.error("เกิดข้อผิดพลาดในการลบ");
+        }
       }
     }
   };
@@ -114,16 +132,18 @@ const CrudModal = () => {
 
   return (
     <div className="w-full max-w-md mx-auto p-4 bg-white dark:bg-gray-900  rounded-lg shadow-lg">
-      <p className="text-[16px] text-slate-900 dark:text-white mb-4">รุ่น</p>
+      <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[14px] text-slate-900 dark:text-white mb-4">
+        รุ่น
+      </p>
       <div className="grid gap-y-2">
         <div className="flex justify-between items-center gap-2">
-          <p className="dark:text-white text-gray-950  text-[14px]">
+          <p className="dark:text-white text-gray-950  text-[12px] sm:text-[12px] md:text-[14px] lg:text-[14px]">
             เลือกยี้ห้อ
           </p>
           <select
             value={selectBrand}
             onChange={(e) => setSelectBrand(e.target.value)}
-            className="w-full max-w-xs text-gray-900 bg-white dark:bg-gray-900 dark:text-white dark:border-violet-600 border border-gray-300 select select-sm text-[14px]"
+            className="w-full max-w-xs text-gray-900 bg-white dark:bg-gray-900 dark:text-white dark:border-violet-600 border border-gray-300 select select-sm text-[12px] sm:text-[12px] md:text-[14px] lg:text-[14px]"
           >
             <option value="">เลือกยี่ห้อ</option>
             {brands.map((brand) => (
@@ -132,11 +152,13 @@ const CrudModal = () => {
               </option>
             ))}
           </select>
+          <button onClick={() => headleRefreshBrand()} className="bg-blue-500 hover:bg-blue-400 text-white p-2 flex-shrink-0 text-[12px] sm:text-[12px] md:text-[12px] lg:text-[12px] rounded-md inline-flex gap-2 justify-center items-center">รีเฟรช</button>
         </div>
         <div className="flex justify-between items-center gap-2 ">
           <input
             value={newModal}
             type="text"
+            placeholder="กรุณากรอก รุ่น ... "
             id="small-input"
             onChange={(e) => setnewModal(e.target.value)}
             className="p-1 w-full flex-grow text-[12px] sm:text-[12px] md:text-[14px] lg:text-[14px] font-light text-gray-900 dark:bg-gray-900 dark:text-white dark:border-violet-600 border focus:outline-none focus:ring focus:ring-violet-300 rounded-md bg-gray-50"

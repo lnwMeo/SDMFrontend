@@ -16,38 +16,7 @@ function TableReturn() {
       borrower:"ครู เพ็ญศรี",
       returnee: "แอดมิน สมพงษ์",
     },
-    {
-      id: "002",
-      listname: "การยืม - คืน",
-      loanDate: "16/6/2024",
-      returnDate: "24/6/2024",
-      borrower:"ครู เพ็ญศรี",
-      returnee: "แอดมิน สมพงษ์",
-    },
-    {
-      id: "003",
-      listname: "การยืม - คืน",
-      loanDate: "18/6/2024",
-      returnDate: "26/6/2024",
-      borrower:"ครู เพ็ญศรี",
-      returnee: "แอดมิน สมพงษ์",
-    },
-    {
-      id: "004",
-      listname: "การยืม - คืน",
-      loanDate: "10/6/2024",
-      returnDate: "15/6/2024",
-      borrower:"ครู เพ็ญศรี",
-      returnee: "แอดมิน สมพงษ์",
-    },
-    {
-      id: "005",
-      listname: "การยืม - คืน",
-      loanDate: "10/6/2024",
-      returnDate: "15/6/2024",
-      borrower:"ครู เพ็ญศรี",
-      returnee: "แอดมิน สมพงษ์",
-    },
+
   ];
 
   const handleReturn = () => {

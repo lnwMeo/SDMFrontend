@@ -108,11 +108,12 @@ const CrudBrand = () => {
 
   return (
     <div className="w-full max-w-md mx-auto p-4 bg-white dark:bg-gray-900  rounded-lg shadow-lg">
-      <p className="text-[16px] text-slate-900 dark:text-white mb-4">ยี้ห้อ</p>
+      <p className="text-[12px] sm:text-[12px] md:text-[14px] lg:text-[14px] text-slate-900 dark:text-white mb-4">ยี้ห้อ</p>
       <div className="flex justify-between items-center gap-2">
         <input
           type="text"
           id="small-input"
+           placeholder="กรุณากรอก แบรนด์ ... "
           value={newBrand}
           onChange={(e) => setnewBrand(e.target.value)}
           className="p-1 w-full flex-grow text-[12px] sm:text-[12px] md:text-[14px] lg:text-[14px] font-light text-gray-900 dark:bg-gray-900 dark:text-white dark:border-violet-600 border focus:outline-none focus:ring focus:ring-violet-300 rounded-md bg-gray-50"

@@ -18,4 +18,20 @@
  lg
  xl
 
- 
+title หัวข้อหลัก
+text-[16px] sm:text-[16px] md:text-[18px] lg:text-[20px]
+tag p ตัวอักษรทั่วไป
+text-[12px] sm:text-[12px] md:text-[14px] lg:text-[14px]
+text button
+text-[12px] sm:text-[12px] md:text-[12px] lg:text-[12px]
+
+
+color button
+bg-green-600 hover:bg-green-500
+bg-amber-500 hover:bg-amber-600
+bg-red-500 hover:bg-red-600
+
+
+color card
+bg-white dark:bg-gray-900 
+

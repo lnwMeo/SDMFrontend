@@ -11,9 +11,10 @@ import {
   listproductbycategory,
   listProductBySearch,
 } from "../../api/product";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-
+// import Swal from "sweetalert2";
+// import withReactContent from "sweetalert2-react-content";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Home() {
   const [selectCategory, setselectCategory] = useState("");
   const [keyword, setKeyword] = useState("");
@@ -24,8 +25,9 @@ function Home() {
   const [basket, setBasket] = useState([]);
   // const [timer, setTimer] = useState(null);
   const timerRef = useRef(null); // ใช้ useRef แทน state
-  const MySwal = withReactContent(Swal);
+  // const MySwal = withReactContent(Swal);
   const Timeoutproduct = 5 * 60 * 1000;
+
 
   const fetchProducts = useCallback(() => {
     const fetchData = async () => {
@@ -69,18 +71,19 @@ function Home() {
   
     timerRef.current = setTimeout(() => {
       setBasket([]); // ล้างตะกร้า
-      MySwal.fire({
-        title: "หมดเวลาการทำรายการ!",
-        text: "สินค้าที่เลือกไว้ถูกลบออกจากตะกร้า",
-        icon: "warning",
-        confirmButtonText: "ตกลง",
-        customClass: {
-          title: "text-xl font-normal font-prompt text-gray-900",
-          content: "text-sm font-prompt text-gray-700",
-          confirmButton:
-            "bg-blue-500 font-prompt hover:bg-blue-600 text-white font-normal py-2 px-4 rounded",
-        },
-      });
+      // MySwal.fire({
+      //   title: "หมดเวลาการทำรายการ!",
+      //   text: "สินค้าที่เลือกไว้ถูกลบออกจากตะกร้า",
+      //   icon: "warning",
+      //   confirmButtonText: "ตกลง",
+      //   customClass: {
+      //     title: "text-xl font-normal font-prompt text-gray-900",
+      //     content: "text-sm font-prompt text-gray-700",
+      //     confirmButton:
+      //       "bg-blue-500 font-prompt hover:bg-blue-600 text-white font-normal py-2 px-4 rounded",
+      //   },
+      // });
+      toast.warn("หมดเวลาการทำรายการ ! สินค้าที่เลือกไว้ถูกลบออกจากตะกร้า");
     }, Timeoutproduct); // ตั้ง timer ใหม่
   
     console.log("New timer set:", timerRef.current);

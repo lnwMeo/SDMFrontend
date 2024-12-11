@@ -1,7 +1,8 @@
 import {useEffect, useState } from "react";
 import CardBasket from "./CardBasket";
 
-
+// import { toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 function Basket({ basket, setBasket }) {
   const [remainingTime, setRemainingTime] = useState(0); // ตั้งค่าเริ่มต้นเป็น 0
@@ -26,7 +27,7 @@ function Basket({ basket, setBasket }) {
 
   useEffect(() => {
     if (basket.length > 0) {
-      setRemainingTime(5 * 60); // เริ่มต้นใหม่ทุกครั้งเมื่อมีสินค้าใน basket
+      setRemainingTime(1 * 60); // เริ่มต้นใหม่ทุกครั้งเมื่อมีสินค้าใน basket
       setTimerActive(true); // เปิดใช้งานตัวจับเวลา
     } else {
       setRemainingTime(0); // รีเซ็ตเวลาเมื่อไม่มีสินค้า
@@ -42,6 +43,7 @@ function Basket({ basket, setBasket }) {
         if (prev > 1) return prev - 1;
         clearInterval(interval); // หยุดการนับถอยหลังเมื่อถึง 0
         setBasket([]); // ล้างตะกร้าเมื่อหมดเวลา
+        // toast.warn("หมดเวลาการทำรายการ ! สินค้าที่เลือกไว้ถูกลบออกจากตะกร้า");
         return 0;
       });
     }, 1000);
